@@ -5,7 +5,7 @@ class Node {
         this.prev = null;
     }
 }
-class DoubleList {
+export class DoubleList {
     constructor() {
         this.head = null;
         this.tail = null;
@@ -103,4 +103,30 @@ class DoubleList {
         this.length--;
         return true;
     }
+}
+
+
+// @test
+const list = new DoubleList();
+list.insertAt(0, 111);
+list.insertAt(1, 222);
+list.insertAt(1, 333);
+list.insertAt(3, 444);
+list.insertAt(4, 555);
+list.insertAt(5, 666);
+list.forEach((node, i) => {
+    console.log(node.data, i);
+});
+
+try {
+    list.insert(8, 333)
+} catch (error) {
+    console.log(error);
+}
+
+list.removeAt(1);
+list.forEach((node, i) => {
+    console.log(node.data, i);
+});
+    
 }
